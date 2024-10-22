@@ -28,13 +28,20 @@
                 $addizione = $n1Intero + $n2Intero;
                 $sottrazione = $n1Intero - $n2Intero;
                 $moltiplicazione = $n1Intero * $n2Intero;
-                $divisione = $n1Intero / $n2Intero;
+                if ($n2 != 0) {
+                    $divisione = $n1Intero / $n2Intero;
+                    $divisioneFormattata = number_format ($divisione, 2);
+                }
                 echo "<table style='border: solid, black, 2px; border-collapse: collapse;'>";
                 echo "<tr> <th style='border: solid, black, 2px'>Operazione</th> <th style='border: solid, black, 2px'>Risultato</th> </tr>";
                 echo "<tr> <td style='border: solid, black, 2px'>Addizione</td> <td style='border: solid, black, 2px'>$addizione</td> </tr>";
                 echo "<tr> <td style='border: solid, black, 2px'>Sottrazione</td> <td style='border: solid, black, 2px'>$sottrazione</td> </tr>";
                 echo "<tr> <td style='border: solid, black, 2px'>Moltiplicazione</td> <td style='border: solid, black, 2px'>$moltiplicazione</td> </tr>";
-                echo "<tr> <td style='border: solid, black, 2px'>Divisione</td> <td style='border: solid, black, 2px'>$divisione</td> </tr>";
+                if ($n2 == 0) {
+                    echo "<tr> <td style='border: solid, black, 2px'>Divisione</td> <td style='border: solid, black, 2px'>Impossibile</td> </tr>";
+                } else {
+                    echo "<tr> <td style='border: solid, black, 2px'>Divisione</td> <td style='border: solid, black, 2px'>$divisioneFormattata</td> </tr>";
+                }
                 echo "</table>";
             }
 
